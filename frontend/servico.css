@@ -1,0 +1,45 @@
+/* Fundo escuro do Modal */
+.modal {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 1000;
+}
+
+/* O quadrado branco do Modal */
+.modal-conteudo {
+    background-color: var(--text-light, #ffffff);
+    border-radius: 8px; width: 90%; max-width: 600px;
+    max-height: 90vh; display: flex; flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.modal-cabecalho {
+    padding: 15px 20px; border-bottom: 1px solid #eee;
+    display: flex; justify-content: space-between; align-items: center;
+}
+
+.fechar-modal {
+    font-size: 24px; cursor: pointer; color: #888;
+}
+
+.fechar-modal:hover { color: #d9534f; }
+
+/* Corpo com barra de rolagem se tiver muitas tags */
+.modal-corpo {
+    padding: 20px; overflow-y: auto; flex-grow: 1;
+}
+
+/* Deixa os inputs lado a lado (2 colunas) */
+.grid-form {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 15px;
+}
+
+.input-group { display: flex; flex-direction: column; }
+.input-group label { font-size: 12px; font-weight: bold; margin-bottom: 5px; color: #333; text-transform: uppercase;}
+.input-group input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+
+.modal-rodape {
+    padding: 15px 20px; border-top: 1px solid #eee;
+    display: flex; justify-content: flex-end; gap: 10px;
+}
