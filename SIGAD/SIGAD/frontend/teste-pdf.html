@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Teste de PDF</title>
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f9;">
+
+    <button id="btnTestar" style="padding: 20px; font-size: 20px; background-color: #0d3b66; color: white; border: none; border-radius: 10px; cursor: pointer;">
+        Gerar e baixar PDF
+
+    <script>
+        document.getElementById('btnTestar').addEventListener('click', async () => {
+            const btn = document.getElementById('btnTestar');
+            btn.textContent = "Gerando...";
+            
+            try {
+                // Faz a requisição POST para o nosso Back-end
+                const response = await fetch('http://localhost:3000/api/pdf/gerar', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        modeloId: 28, // <-- Colocar o ID que foi criado
+                        dadosFormulario: {
+                            "nome": "Leonardo Barreto",
+                            "cpf": "111.222.333-44"
+                        }
+                    })
+                });
+
+                // Pega a "sopa de letrinhas" e transforma num arquivo Blob (PDF)
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                
+                // Cria um link invisível e clica nele para forçar o download
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = "Procuracao_Teste.pdf";
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+
+                btn.textContent = "Deu certo! (clique novamente para gerar outro)";
+            } catch (error) {
+                console.error(error);
+                btn.textContent = "Erro na conexão";
+            }
+        });
+    </script>
+</body>
+</html>

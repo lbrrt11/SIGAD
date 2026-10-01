@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGAD - Gerenciar Modelos</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- Navbar Superior -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="nav-icon">⚖️</span>
+            <h2>SGAD - Modelos</h2>
+        </div>
+        
+        <div class="nav-menu">
+            <span id="mensagemBoasVindas" class="nav-user">Olá, Carregando...</span>
+            <button id="btnVoltar" class="nav-link">Voltar a Tela Principal</button>
+            <button id="btnSair" class="btn-sair">Sair</button>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="dashboard-main">
+        <div class="cabecalho-sessao" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3 class="titulo-sessao" style="margin: 0;">Modelos de Documentos</h3>
+            
+            <button id="btnNovoModelo" class="btn-primario" style="width: max-content; padding: 10px 20px; margin: 0; white-space: nowrap;">
+                + Novo Modelo
+            </button>
+        </div>
+        
+        <!-- Tabela de Modelos Detalhada -->
+        <!-- Tabela de Modelos Detalhada -->
+        <div class="tabela-container">
+            <table class="tabela-sgad">
+                <!-- ADICIONE O ID AQUI NESTA LINHA ABAIXO -->
+                <thead id="cabecalhoTabela" style="display: none;"> 
+                    <tr>
+                        <th>Nome do Modelo</th>
+                        <th>Tipo</th>
+                        <th>Natureza</th>
+                        <th>Texto Base</th>
+                        <th id="colunaAcoes">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="corpoTabela">
+                    <tr><td colspan="5" style="text-align: center;">Carregando modelos...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    <script src="modelos.js"></script>
+</body>
+</html>
