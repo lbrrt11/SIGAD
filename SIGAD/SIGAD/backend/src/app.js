@@ -1,1 +1,0 @@
-app.use("/api/logs", require("./routes/logRoutes"));
